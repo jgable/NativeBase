@@ -74,25 +74,21 @@ this.state.chosenDate?this.props.textStyle:this.props.placeHolderTextStyle],__so
 
 
 this.state.chosenDate?
-this.state.chosenDate.getDate()+
-"/"+(
-this.state.chosenDate.getMonth()+1)+
-"/"+
-+this.state.chosenDate.getFullYear():
+this.formatChosenDate(this.state.chosenDate):
 this.props.placeHolderText?
 this.props.placeHolderText:
 "Select Date"),
 
-_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:86}},
+_react2.default.createElement(_reactNative.View,{__source:{fileName:_jsxFileName,lineNumber:82}},
 _react2.default.createElement(_reactNative.Modal,{
 animationType:this.props.animationType,
 transparent:this.props.modalTransparent,
 visible:this.state.modalVisible,
-onRequestClose:function onRequestClose(){},__source:{fileName:_jsxFileName,lineNumber:87}},
+onRequestClose:function onRequestClose(){},__source:{fileName:_jsxFileName,lineNumber:83}},
 
 _react2.default.createElement(_nativeBase.Text,{
 onPress:function onPress(){return _this2.setState({modalVisible:false});},
-style:{backgroundColor:variables.datePickerBg,flex:1},__source:{fileName:_jsxFileName,lineNumber:93}}),
+style:{backgroundColor:variables.datePickerBg,flex:1},__source:{fileName:_jsxFileName,lineNumber:89}}),
 
 _react2.default.createElement(_reactNative.DatePickerIOS,{
 date:
@@ -105,12 +101,24 @@ minimumDate:this.props.minimumDate,
 maximumDate:this.props.maximumDate,
 mode:"date",
 locale:this.props.locale,
-timeZoneOffsetInMinutes:this.props.timeZoneOffsetInMinutes,__source:{fileName:_jsxFileName,lineNumber:97}}))))));
+timeZoneOffsetInMinutes:this.props.timeZoneOffsetInMinutes,__source:{fileName:_jsxFileName,lineNumber:93}}))))));
 
 
 
 
 
 
+}},{key:"formatChosenDate",value:function formatChosenDate(
+
+date){
+if(this.props.formatChosenDate){
+return this.props.formatChosenDate(date);
+}
+
+return[
+date.getDate(),
+date.getMonth()+1,
+date.getFullYear()].
+join('/');
 }}]);return DatePicker;}(_react2.default.Component);
 //# sourceMappingURL=DatePicker.js.map
